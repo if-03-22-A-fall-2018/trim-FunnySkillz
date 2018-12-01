@@ -14,6 +14,7 @@
 #define ___TEST_trim_H
 
 #include "shortcut.h"
+#define STRLEN 16
 
 TEST(empty_substring);
 TEST(total_string);
