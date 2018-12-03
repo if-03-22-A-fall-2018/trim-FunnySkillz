@@ -1,9 +1,9 @@
 /*----------------------------------------------------------
- *				HTBLA-Leonding / Klasse: <your class>
+ *				HTBLA-Leonding / Klasse: 2AHIF
  * ---------------------------------------------------------
  * Exercise Number: 0
  * Title:			trim.cpp
- * Author:			P. Bauer
+ * Author:			S. Bogdan
  * Due Date:		March 14, 2015
  * ----------------------------------------------------------
  * Description:
@@ -13,39 +13,40 @@
 #include <string.h>
 #include <stdio.h>
 #include "trim.h"
+#include <stdbool.h>
 
-void 	trim (char *source, char *trimmed_string)
+void 	trim (const char *source, char *trimmed_string)
 {
  int length = strlen(source);
+ int start = 0;
+ bool check = true;
+
  if (length <= 0) {
   strcpy(trimmed_string, source);
   return;
  }
- int begin = 0;
- int check = 1;
-
- for (int i = 0; i < length && check == 1; i++) {
+ for (int i = 0; i < length && check == true; i++) {
   if (source[i] == ' ') {
-   begin++;
+   start++;
   }
   else
   {
-   check = 0;
+   check = false;
   }
  }
 
  int end = length;
- check = 1;
+ check = true;
 
  for (int i = length - 1; i >= 0 && check == 1; i--) {
    if (source[i] != ' ') {
     end = i;
-    check = 0;
+    check = false;
    }
  }
 
- for (int i = 0; begin <= end; i++) {
-  trimmed_string[i] = source[begin];
-  begin++;
+ for (int i = 0; start <= end; i++) {
+  trimmed_string[i] = source[start];
+  start++;
   }
- }
+}

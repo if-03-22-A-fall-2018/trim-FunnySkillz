@@ -15,6 +15,6 @@
 #include <string.h>
 #include <stdio.h>
 
-void trim(char* source, char* trimmed_string);
+void trim(const char* source, char* trimmed_string);
 
 #endif
